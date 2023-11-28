@@ -11,6 +11,7 @@ def dominant_colors(image):  # PIL image input
     ar = ar.reshape(numpy.prod(shape[:2]), shape[2]).astype(float)
 
     kmeans = sklearn.cluster.MiniBatchKMeans(
+        n_init = 3,
         n_clusters=3,
         init="k-means++",
         max_iter=20,
@@ -27,7 +28,7 @@ def dominant_colors(image):  # PIL image input
     return colors                    # returns colors in order of dominance
 
 
-working_image = Image.open("/home/ethan/Desktop/CompSci/370 Raspberry PI project/Paint-Color-Grabber-RaspberryPI/Picture to RGB Value/exampleImage3.jpeg")
+working_image = Image.open("/home/ethan/Desktop/CompSci/370 Raspberry PI project/Paint-Color-Grabber-RaspberryPI/Picture to RGB Value/exampleImage1.jpeg")
 
 ##Find the dominant RGB value
 ##Use k-means++ algorithm to cluster RGB Values
